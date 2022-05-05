@@ -22,7 +22,7 @@ const schema = {
   },
 }
 
-export const checkBookMiddleware = checkSchema(schema)
+export const checkUserMiddleware = checkSchema(schema)
 
 export const checkValidationResult = (req, res, next) => {
   const errors = validationResult(req)

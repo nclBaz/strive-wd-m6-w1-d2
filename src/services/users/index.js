@@ -9,7 +9,7 @@
 import express from "express"
 import createError from "http-errors"
 import UsersModel from "./model.js"
-import { checkBookMiddleware, checkValidationResult } from "./validation.js"
+import { checkUserMiddleware, checkValidationResult } from "./validation.js"
 
 const usersRouter = express.Router()
 
@@ -19,7 +19,7 @@ const usersRouter = express.Router()
 // }
 
 // 1.
-usersRouter.post("/", checkBookMiddleware, checkValidationResult, async (req, res, next) => {
+usersRouter.post("/", checkUserMiddleware, checkValidationResult, async (req, res, next) => {
   try {
     // (req, res, next) => {} is the ENDPOINT HANDLER. Is the function that will be executed every time a request on that endpoint is sent. req and res are REQUEST and RESPONSE objects
 
