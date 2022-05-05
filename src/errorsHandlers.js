@@ -1,7 +1,7 @@
 export const badRequestHandler = (err, req, res, next) => {
   if (err.status === 400) {
     // If the error received has status of 400, I am responsible of sending a response, otherwise I'm sending the error to who comes next
-    res.status(400).send({ message: err.message })
+    res.status(400).send({ message: err.message, errorsList: err.errorsList })
   } else {
     next(err)
   }

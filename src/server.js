@@ -2,6 +2,7 @@ import express from "express"
 import listEndpoints from "express-list-endpoints"
 import mongoose from "mongoose"
 import createError from "http-errors"
+import cors from "cors"
 import usersRouter from "./services/users/index.js"
 import booksRouter from "./services/books/index.js"
 import { badRequestHandler, unauthorizedHandler, forbiddenHandler, notFoundHandler, genericErrorHandler } from "./errorsHandlers.js"
@@ -28,6 +29,7 @@ const policeOfficerMiddleware = (req, res, next) => {
 }
 // ** GLOBAL LEVEL MIDDLEWARES **
 
+server.use(cors()) // YOU NEED THIS TO CONNECT YOUR FE TO THIS BE
 server.use(loggerMiddleware)
 // server.use(policeOfficerMiddleware)
 server.use(express.json()) // if you don't add this line BEFORE the endpoints, all requests' bodies will be UNDEFINED
